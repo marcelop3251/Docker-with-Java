@@ -1,0 +1,57 @@
+version: '3'
+services:
+  nginx:
+    build:
+      dockerfile: ./nginx/nginx.dockerfile
+      context: .
+    image: marcelop3251/nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    networks:
+      - production-network
+    depends_on:
+      - "java1"
+      - "java2"
+
+
+
+  postgresdb:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=654321
+      - POSTGRES_USER=docker-java
+      - POSTGRES_DB=docker-java
+    networks:
+      - production-network
+
+  java1:
+    build:
+      dockerfile: ./java/java.dockerfile
+      context: .
+    image: marcelop3251/cadastro
+    container_name: aplicacao-1
+    ports:
+      - "8080"
+    networks:
+     - production-network
+    depends_on:
+      - "postgresdb"
+
+  java2:
+    build:
+      dockerfile: ./java/java.dockerfile
+      context: .
+    image: marcelop3251/cadastro
+    container_name: aplicacao-2
+    ports:
+      - "8080"
+    networks:
+     - production-network
+    depends_on:
+      - "postgresdb"
+
+
+networks:
+  production-network:
+    driver: bridge
