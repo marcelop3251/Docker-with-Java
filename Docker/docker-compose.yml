@@ -5,36 +5,52 @@ services:
       dockerfile: ./nginx/nginx.dockerfile
       context: .
     image: marcelop3251/nginx
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M    
     container_name: nginx
     ports:
       - "80:80"
-    networks:
-      - production-network
     depends_on:
       - "java1"
       - "java2"
 
-
-
   postgresdb:
     image: postgres
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M    
     environment:
       - POSTGRES_PASSWORD=654321
       - POSTGRES_USER=docker-java
       - POSTGRES_DB=docker-java
-    networks:
-      - production-network
 
   java1:
     build:
       dockerfile: ./java/java.dockerfile
       context: .
     image: marcelop3251/cadastro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
     container_name: aplicacao-1
     ports:
       - "8080"
-    networks:
-     - production-network
     depends_on:
       - "postgresdb"
 
@@ -43,15 +59,16 @@ services:
       dockerfile: ./java/java.dockerfile
       context: .
     image: marcelop3251/cadastro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M    
     container_name: aplicacao-2
     ports:
       - "8080"
-    networks:
-     - production-network
     depends_on:
       - "postgresdb"
-
-
-networks:
-  production-network:
-    driver: bridge

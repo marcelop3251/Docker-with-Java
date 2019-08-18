@@ -2,12 +2,14 @@ FROM openjdk:8
 MAINTAINER Marcelo Garcia Palma
 
 RUN  apt-get update && \
- 	apt-get -y install git && \
- mkdir -p ${HOME}/workspace && \
+ 	apt-get -y install git && apt-get -y install libgtk-3-dev && \
+mkdir -p ${HOME}/workspace && \
  	cd /opt/ && \
- 	wget http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2018-09/R/eclipse-jee-2018-09-linux-gtk-x86_64.tar.gz  && \
- 	tar -xzvf eclipse-jee-2018-09-linux-gtk-x86_64.tar.gz && \
- 	rm eclipse-jee-2018-09-linux-gtk-x86_64.tar.gz 
+ 	wget http://espejito.fder.edu.uy/eclipse/technology/epp/downloads/release/2019-06/R/eclipse-jee-2019-06-R-linux-gtk-x86_64.tar.gz && \
+ 	tar -xzvf eclipse-jee-2019-06-R-linux-gtk-x86_64.tar.gz && \
+ 	rm eclipse-jee-2019-06-R-linux-gtk-x86_64.tar.gz
 
 ENTRYPOINT /opt/eclipse/eclipse
+
+
 

@@ -5,25 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.invillia.dockerjava.entity.Usuario;
-import com.invillia.dockerjava.repository.UsuariosRepository;
+import com.invillia.dockerjava.entity.User;
+import com.invillia.dockerjava.repository.UserRepository;
 
 @Service
-public class UsuariosService {
+public class UserService {
 
 	@Autowired
-	private UsuariosRepository repository;
+	private UserRepository repository;
 
-	public List<Usuario> list() {			
+	public List<User> list() {
 		return repository.findAll();
 	}
 
-	public Usuario save(Usuario usuario) {
-		return repository.save(usuario);
+	public User save(User user) {
+		return repository.save(user);
 	}
 
-	public Usuario findUserById(Long idUsuario) {
-		return repository.findById(idUsuario).orElseThrow(() -> new RuntimeException("User Not Found"));
+	public User findUserById(Long idUser) {
+		return repository.findById(idUser).orElseThrow(() -> new RuntimeException("User Not Found"));
 	}
 	
 }
