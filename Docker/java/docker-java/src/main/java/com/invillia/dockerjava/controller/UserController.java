@@ -34,7 +34,7 @@ public class UsuariosController {
 	
 	@PostMapping
 	@ResponseStatus(value=HttpStatus.CREATED)
-	public URI createRecurso(Usuario usuario) throws URISyntaxException {
+	public URI createRecurso(@RequestBody Usuario usuario) throws URISyntaxException {
 		Usuario user = usuariosService.save(usuario);
 		return new URI("/usuario/" +user.getId().toString());
 	}

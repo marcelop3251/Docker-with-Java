@@ -12,15 +12,16 @@
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-/out/
+/Docker/java/docker-java/.idea
+/Docker/java/docker-java/*.iws
+/Docker/java/docker-java/*.iml
+/Docker/java/docker-java/*.ipr
+/Docker/java/docker-java/out/
+/Docker/java/docker-java/build
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+### Eclipse ###
+/Docker/java/docker-java/bin
+/Docker/java/.metadata
+/Docker/java/docker-java/.settings
+/Docker/java/docker-java/.classpah
+/Docker/java/docker-java/.project
