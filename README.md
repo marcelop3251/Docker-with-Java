@@ -46,7 +46,7 @@ For demostrate the power what have with docker, we create the following system.
 
 ### Architecture
 
-![alt text](https://github.com/marcelop3251/Docker-with-Java/edit/master/architecture.png)
+![system](https://github.com/marcelop3251/Docker-with-Java/blob/master/architecture.png)
 
 - Install docker-compose on your machine
 
