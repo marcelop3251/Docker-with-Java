@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import com.invillia.dockerjava.entity.User;
 import com.invillia.dockerjava.service.UserService;
 
-
+@CrossOrigin(origins = "http://meu-site")
 @RestController
 @RequestMapping("/usuario")
 public class UserController {
@@ -20,7 +20,7 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping
-	@CrossOrigin(origins = "*")
+
 	@ResponseStatus(value = HttpStatus.OK)
 	public List<User> getUsuarios(){
 		return userService.list();

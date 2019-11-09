@@ -1,9 +1,8 @@
-const URL_TO_FETCH = 'http://localhost:80/usuario';
+const URL_TO_FETCH = 'http://172.17.0.4/usuario';
 
 $(document).ready(function() {
 	fetch(URL_TO_FETCH);	
 })
-
 
 fetch(URL_TO_FETCH, {
   method: 'get'
