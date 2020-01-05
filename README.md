@@ -55,7 +55,7 @@ At root of your project, into the directory Docker,running the following command
 - docker-compose up for to go up the container.
 - docker-compose down for remove all containers created by docker.
 
-Acess in your machine the folowwing addres
+From in your machine the following address
 http://localhost for register user.
 http://localhost/list-users.html for user list registered
 
